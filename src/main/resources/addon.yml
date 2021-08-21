@@ -1,0 +1,12 @@
+name: ItemsAdderHook
+main: lv.id.bonne.itemsadderhook.ItemsAdderHookAddon
+version: ${version}${build.number}
+api-version: ${bentobox.version}
+repository: 'BONNePlayground/ItemsAdderHook'
+metrics: true
+icon: TNT
+
+authors:
+  - BONNe
+
+softdepend: AcidIsland, AOneBlock, BSkyBlock, CaveBlock, SkyGrid, Boxed

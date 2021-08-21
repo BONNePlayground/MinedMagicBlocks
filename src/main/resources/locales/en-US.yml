@@ -1,0 +1,11 @@
+# Protection flags that are used in current addon.
+protection:
+  flags:
+    # This flag allows to switch which island member group can use explosive items from Items Adder.
+    ITEMS_ADDER_EXPLOSIONS:
+      name: "Items Adder Explosion Permission"
+      description: |-
+        &a Select who can access
+        &a use explosive items from
+        &a ItemsAdder plugin.
+      icon: TNT
