@@ -5,15 +5,15 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>lv.id.bonne</groupId>
-	<artifactId>itemsadderhook</artifactId>
+	<artifactId>minedmagicblocks</artifactId>
 	<version>${revision}</version>
 	<packaging>jar</packaging>
 
-	<name>ItemsAdderHook</name>
+	<name>MinedMagicBlocks</name>
 
-	<description>This is simple BentoBox addon that allows to hook into ItemsAdder Plugin and add some extra protection.</description>
+	<description>This is simple BentoBox addon for AOneBlock to count how many magic blocks each player has mined</description>
 
-	<url>https://github.com/BONNePlayground/ItemsAdderHook</url>
+	<url>https://github.com/BONNePlayground/MinedMagicBlocks</url>
 	<inceptionYear>2021</inceptionYear>
 
 	<scm>
@@ -24,12 +24,12 @@
 
 	<ciManagement>
 		<system>jenkins</system>
-		<url>http://ci.codemc.org/job/BONNePlayground/job/ItemsAdderHook</url>
+		<url>http://ci.codemc.org/job/BONNePlayground/job/MinedMagicBlocks</url>
 	</ciManagement>
 
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/BONNePlayground/ItemsAdderHook/issues</url>
+		<url>https://github.com/BONNePlayground/MinedMagicBlocks/issues</url>
 	</issueManagement>
 
 	<distributionManagement>
@@ -46,10 +46,11 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 		<!-- More visible way how to change dependency versions -->
-		<spigot.version>1.16.5-R0.1-SNAPSHOT</spigot.version>
-		<bentobox.version>1.16.2</bentobox.version>
+		<spigot.version>1.20-R0.1-SNAPSHOT</spigot.version>
+		<bentobox.version>1.24.0</bentobox.version>
+		<aoneblock.version>1.14.2</aoneblock.version>
 		<!-- Revision variable removes warning about dynamic version -->
 		<revision>${build.version}-SNAPSHOT</revision>
 		<!-- This allows to change between versions and snapshots. -->
@@ -125,6 +126,12 @@
 			<groupId>world.bentobox</groupId>
 			<artifactId>bentobox</artifactId>
 			<version>${bentobox.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>world.bentobox</groupId>
+			<artifactId>aoneblock</artifactId>
+			<version>${aoneblock.version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

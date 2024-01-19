@@ -1,12 +1,12 @@
-name: ItemsAdderHook
+name: MinedMagicBlocks
 main: lv.id.bonne.itemsadderhook.ItemsAdderHookAddon
-version: ${version}${build.number}
-api-version: ${bentobox.version}
-repository: 'BONNePlayground/ItemsAdderHook'
+version: ${version}-#{build.number}
+api-version: 1.20
+repository: 'BONNePlayground/MinedMagicBlocks'
 metrics: true
-icon: TNT
+icon: DIAMOND_PICKAXE
 
 authors:
   - BONNe
 
-softdepend: AcidIsland, AOneBlock, BSkyBlock, CaveBlock, SkyGrid, Boxed
+softdepend: AOneBlock

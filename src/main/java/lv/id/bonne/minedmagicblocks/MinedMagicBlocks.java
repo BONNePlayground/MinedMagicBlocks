@@ -1,18 +1,17 @@
-package lv.id.bonne.itemsadderhook;
+package lv.id.bonne.minedmagicblocks;
 
-import org.bukkit.Material;
+import java.util.Optional;
 
-import lv.id.bonne.itemsadderhook.events.BlockInteractListener;
+import lv.id.bonne.minedmagicblocks.events.MagicBlockListener;
 import world.bentobox.bentobox.api.addons.Addon;
-import world.bentobox.bentobox.api.flags.Flag;
-import world.bentobox.bentobox.api.flags.clicklisteners.CycleClick;
-import world.bentobox.bentobox.managers.RanksManager;
+import world.bentobox.bentobox.api.addons.GameModeAddon;
+import world.bentobox.bentobox.api.metadata.MetaDataValue;
 
 
 /**
  * This class inits ItemsAdderHook Addon.
  */
-public final class ItemsAdderHookAddon extends Addon
+public final class MinedMagicBlocks extends Addon
 {
     /**
      * Executes code when loading the addon. This is called before {@link #onEnable()}.
@@ -39,17 +38,26 @@ public final class ItemsAdderHookAddon extends Addon
             return;
         }
 
-        // Check if RoseStacker exists.
-        if (!this.getServer().getPluginManager().isPluginEnabled("ItemsAdder"))
+        Optional<GameModeAddon> optionalAddon =
+            this.getPlugin().getAddonsManager().getAddonByName("AOneBlock");
+
+        if (optionalAddon.isEmpty())
         {
-            this.logError("ItemsAdder is not available or disabled!");
+            this.logError("AOneBlock is not available or disabled!");
             this.setState(State.DISABLED);
             return;
         }
 
         // Register listener
-        this.registerListener(new BlockInteractListener());
-        this.registerFlag(ITEMS_ADDER_EXPLOSIONS);
+        this.registerListener(new MagicBlockListener());
+
+        optionalAddon.ifPresent(aoneblock ->
+            this.getPlugin().getPlaceholdersManager().registerPlaceholder(aoneblock,
+                "player_mined_total_magic_blocks",
+                user -> user == null ? "0" :
+                    String.valueOf(user.getMetaData(MINED_MAGIC_BLOCKS).
+                        map(MetaDataValue::asLong).
+                        orElse(0L))));
     }
 
 
@@ -61,15 +69,5 @@ public final class ItemsAdderHookAddon extends Addon
     }
 
 
-    /**
-     * This flag allows to switch which island member group can use explosive items from Items Adder.
-     */
-    public final static Flag ITEMS_ADDER_EXPLOSIONS =
-        new Flag.Builder("ITEMS_ADDER_EXPLOSIONS", Material.TNT).
-            type(Flag.Type.PROTECTION).
-            defaultRank(RanksManager.MEMBER_RANK).
-            clickHandler(new CycleClick("ITEMS_ADDER_EXPLOSIONS",
-                RanksManager.VISITOR_RANK,
-                RanksManager.OWNER_RANK)).
-            build();
+    public static final String MINED_MAGIC_BLOCKS = "mined-magic-blocks";
 }
