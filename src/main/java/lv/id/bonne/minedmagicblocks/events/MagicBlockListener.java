@@ -3,14 +3,14 @@ package lv.id.bonne.minedmagicblocks.events;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 
 import lv.id.bonne.minedmagicblocks.MinedMagicBlocks;
 import world.bentobox.aoneblock.events.MagicBlockEvent;
-import world.bentobox.bentobox.api.flags.FlagListener;
 import world.bentobox.bentobox.api.metadata.MetaDataValue;
 import world.bentobox.bentobox.api.user.User;
 
-public class MagicBlockListener extends FlagListener
+public class MagicBlockListener implements Listener
 {
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
     public void onBlockBreak(MagicBlockEvent event)

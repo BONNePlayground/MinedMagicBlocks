@@ -9,7 +9,7 @@ import world.bentobox.bentobox.api.metadata.MetaDataValue;
 
 
 /**
- * This class inits ItemsAdderHook Addon.
+ * This class inits Addon.
  */
 public final class MinedMagicBlocks extends Addon
 {

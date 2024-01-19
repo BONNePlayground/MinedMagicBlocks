@@ -14,12 +14,12 @@
 	<description>This is simple BentoBox addon for AOneBlock to count how many magic blocks each player has mined</description>
 
 	<url>https://github.com/BONNePlayground/MinedMagicBlocks</url>
-	<inceptionYear>2021</inceptionYear>
+	<inceptionYear>2024</inceptionYear>
 
 	<scm>
-		<connection>scm:git:https://github.com/BONNePlayground/ItemsAdderHook.git</connection>
-		<developerConnection>scm:git:git@github.com:BONNePlayground/ItemsAdderHook.git</developerConnection>
-		<url>https://github.com/BONNePlayground/ItemsAdderHook</url>
+		<connection>scm:git:https://github.com/BONNePlayground/MinedMagicBlocks.git</connection>
+		<developerConnection>scm:git:git@github.com:BONNePlayground/MinedMagicBlocks.git</developerConnection>
+		<url>https://github.com/BONNePlayground/MinedMagicBlocks</url>
 	</scm>
 
 	<ciManagement>

@@ -1,5 +1,5 @@
 name: MinedMagicBlocks
-main: lv.id.bonne.itemsadderhook.ItemsAdderHookAddon
+main: lv.id.bonne.minedmagicblocks.MinedMagicBlocks
 version: ${version}-#{build.number}
 api-version: 1.20
 repository: 'BONNePlayground/MinedMagicBlocks'
